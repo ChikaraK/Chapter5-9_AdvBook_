@@ -1,5 +1,14 @@
 # README
 
+---------------------------------------------
+0212
+課題：アプリケーションを作ろう応用編開始
+
+
+
+---------------------------------------------
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
