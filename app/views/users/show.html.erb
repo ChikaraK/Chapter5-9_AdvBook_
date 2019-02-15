@@ -1,0 +1,29 @@
+<div class="container">
+	<div class="row">
+		<%=render 'books/list', user: @user, book: @book;%>
+		<div class="col-xs-9">
+			<% if flash[:notice]%>
+				<p><%= flash[:notice] %></p>
+			<% end %>
+			<h2>Books</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Title</th>
+						<th>Opinion</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @books.where(:user_id => @user.id).find_each do |book|%>
+						<tr>
+							<td><%= attachment_image_tag book.user, :user_image, :fill,30,30, format:'jpeg',fallback: "no_image.jpg",size: "30x30" %></td>
+							<td><%= link_to "#{book.title}",book_path(book.id), class:"book_#{book.id}"%></td>
+							<td><%= book.book_caption %></td>
+						</tr>
+				</tbody>
+				<%end%>
+			</table>
+		</div>
+	</div>
+</div>

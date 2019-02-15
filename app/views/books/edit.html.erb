@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <% if flash[:notice] %>
+        <%= flash[:notice] %>
+      <% end %>
+      <h2>投稿内容変更</h2>
+      <%= form_for(@book) do |f| %>
+        <div class="field row">
+          <%= f.label :タイトル %><br>
+          <%= f.text_field :title, class:"col-xs-12 book_title"%>
+        </div>
+
+        <div class="field row">
+          <%= f.label :本文 %><br>
+          <%= f.text_area :book_caption,class:"col-xs-12 book_body" %><br>
+        </div>
+        <p></p>
+        <div class="actions row">
+          <%= f.submit :変更,class:"btn btn-success col-xs-12 submit"%><br>
+        </div>
+      <% end %>
+      <%= link_to "show",book_path(@book.id),class:"book_#{@book.id}"%>
+      <span>|</span>
+      <%= link_to "Back",books_path, class:"back"%>
+    </div>
+  </div>
+</div>

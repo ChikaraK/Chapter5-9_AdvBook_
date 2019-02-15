@@ -1,0 +1,35 @@
+<div class="container">
+	<div class="row">
+		<%=render 'books/list', user: @userbook.user,
+		book: @book %>
+		<div class="col-xs-9">
+			<% if flash[:notice]%>
+				<p><%= flash[:notice] %></p>
+			<% end %>
+			<h2>Book details</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td><%= attachment_image_tag @userbook.user, :user_image, :fill,30,30, format:'jpeg',fallback: "no_image.jpg",size: "30x30"%><br>
+						<%= link_to "#{@userbook.user.name}",user_path(@userbook.user.id),class:"user_#{@userbook.user.id}" %></td>
+					<td><%= link_to "#{@userbook.title}",book_path(@userbook.id),class:"book_#{@userbook.id}"%></td>
+					<td><%= @userbook.book_caption %></td>
+					<%if current_user.id == @userbook.user.id %>
+						<td><%= link_to "Edit",edit_book_path(@userbook.id), class:"btn btn-success edit_book_#{@userbook.id}"%></td>
+						<td><%= link_to "Delete",book_path(@userbook.id), method: :delete, data: {confirm: '削除してよろしいですか？'} ,class:"btn btn-danger destroy_book_#{@userbook.id}"%></td>
+					<% end %>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
