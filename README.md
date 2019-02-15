@@ -1,5 +1,15 @@
 # README
 
+---------------------------------------------
+0212
+5-9:
+課題：アプリケーションを作ろう応用編開始
+commit -m[start]4-9は5-9の誤り
+
+
+---------------------------------------------
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
